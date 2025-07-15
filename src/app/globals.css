@@ -1,26 +1,701 @@
-@import "tailwindcss";
+/* Global reset */
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Poppins', sans-serif;
+  background: linear-gradient(135deg, #f8f6ff 0%, #f3e8ff 100%);
+  color: #2d114d;
+}
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --purple-main: #a259ff;
+  --purple-dark: #8e44ad;
+  --purple-light: #f3e8ff;
+  --white: #fff;
+  --shadow: 0 6px 24px rgba(162,89,255,0.11);
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+/* -------------- Foodozer Header ---------------- */
+.foodozer-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 24px 6vw;
+  background: var(--white);
+  box-shadow: var(--shadow);
+  border-radius: 0 0 24px 24px;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+.foodozer-logo {
+  font-size: 2.2rem;
+  font-weight: 800;
+  color: var(--purple-main);
+  letter-spacing: 2px;
+}
+
+.foodozer-nav {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+}
+
+.foodozer-link {
+  text-decoration: none;
+  color: var(--purple-dark);
+  font-size: 1.1rem;
+  font-weight: 600;
+  transition: color 0.2s;
+}
+
+.foodozer-link:hover {
+  color: var(--purple-main);
+}
+
+.foodozer-welcome {
+  font-weight: 600;
+  color: var(--purple-main);
+  margin-right: 8px;
+}
+
+.foodozer-logout {
+  background: transparent;
+  border: 2px solid var(--purple-main);
+  color: var(--purple-main);
+  padding: 8px 22px;
+  font-size: 1rem;
+  border-radius: 25px;
+  cursor: pointer;
+  font-weight: 700;
+  transition: all 0.3s;
+}
+
+.foodozer-logout:hover {
+  background: var(--purple-main);
+  color: var(--white);
+}
+
+
+/* -------- Foodozer Hero Section -------- */
+.foodozer-hero {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  background: linear-gradient(120deg, var(--purple-main) 0%, var(--purple-dark) 100%);
+  padding: 60px 8vw;
+  border-radius: 32px;
+  color: var(--white);
+  margin: 40px 6vw 0 6vw;
+  box-shadow: var(--shadow);
+}
+
+.foodozer-hero-content {
+  flex: 1;
+  min-width: 300px;
+  max-width: 520px;
+}
+
+.foodozer-hero-title {
+  font-size: 3.2rem;
+  font-weight: 900;
+  margin-bottom: 18px;
+  line-height: 1.1;
+  letter-spacing: 1px;
+}
+.foodozer-hero-title .accent {
+  color: #fff;
+  background: linear-gradient(90deg, #fff 50%, var(--purple-main) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+.foodozer-hero-desc {
+  font-size: 1.18rem;
+  margin-bottom: 30px;
+  color: #f3e8ff;
+  font-weight: 500;
+}
+.foodozer-cta {
+  background: var(--white);
+  color: var(--purple-main);
+  padding: 14px 36px;
+  border: none;
+  border-radius: 32px;
+  font-size: 1.1rem;
+  font-weight: 700;
+  box-shadow: var(--shadow);
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s, transform 0.2s;
+}
+.foodozer-cta:hover {
+  background: var(--purple-main);
+  color: var(--white);
+  transform: translateY(-2px) scale(1.04);
+}
+
+.foodozer-hero-image {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-width: 260px;
+}
+.foodozer-hero-image img {
+  width: 100%;
+  max-width: 480px;
+  height: auto;
+  border-radius: 32px;
+  object-fit: cover;
+  box-shadow: var(--shadow);
+}
+
+/* -------- Foodozer Refresh Button -------- */
+.foodozer-refresh-btn {
+  display: inline-flex;
+  align-items: center;
+  background: linear-gradient(90deg, var(--purple-main), var(--purple-dark));
+  color: #fff;
+  border: none;
+  border-radius: 28px;
+  padding: 12px 32px;
+  font-size: 1.12rem;
+  font-weight: 700;
+  box-shadow: 0 4px 18px rgba(162,89,255,0.13);
+  cursor: pointer;
+  transition: background 0.2s, transform 0.2s, box-shadow 0.2s;
+  margin-bottom: 18px;
+  margin-top: 0;
+}
+.foodozer-refresh-btn:hover {
+  background: linear-gradient(90deg, var(--purple-dark), var(--purple-main));
+  transform: scale(1.06);
+  box-shadow: 0 8px 24px rgba(162,89,255,0.18);
+}
+.foodozer-refresh-icon {
+  width: 22px;
+  height: 22px;
+  border: 3px solid #fff;
+  border-top: 3px solid var(--purple-main);
+  border-radius: 50%;
+  display: inline-block;
+  animation: foodozer-spin 1s linear infinite;
+  margin-right: 8px;
+  box-sizing: border-box;
+}
+@keyframes foodozer-spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* -------- Foodozer Menu Section -------- */
+
+/* Responsive Design */
+@media (max-width: 1200px) {
+  .foodozer-hero {
+    flex-direction: column;
+    padding: 48px 4vw;
+  }
+  .foodozer-hero-content, .foodozer-hero-image {
+    max-width: 100%;
+  }
+  .foodozer-menu-section {
+    padding: 50px 2vw 40px 2vw;
+  }
+}
+@media (max-width: 900px) {
+  .foodozer-header {
+    flex-direction: column;
+    padding: 18px 2vw;
+    gap: 12px;
+  }
+  .foodozer-hero {
+    flex-direction: column;
+    padding: 36px 2vw;
+  }
+  .foodozer-hero-title {
+    font-size: 2.2rem;
+  }
+  .foodozer-menu-title {
+    font-size: 2rem;
+  }
+}
+@media (max-width: 700px) {
+  .foodozer-header {
+    flex-direction: column;
+    padding: 14px 1vw;
+    gap: 8px;
+  }
+  .foodozer-hero {
+    flex-direction: column;
+    padding: 24px 0.5vw;
+    border-radius: 20px;
+    margin: 20px 2vw 0 2vw;
+  }
+  .foodozer-hero-title {
+    font-size: 1.35rem;
+  }
+  .foodozer-hero-desc {
+    font-size: 1rem;
+  }
+  .foodozer-cta {
+    font-size: 0.98rem;
+    padding: 10px 18px;
+  }
+  .foodozer-hero-image img {
+    border-radius: 18px;
+    max-width: 98vw;
+  }
+  .foodozer-menu-section {
+    padding: 24px 0.5vw 24px 0.5vw;
+  }
+  .foodozer-menu-title {
+    font-size: 1.25rem;
+  }
+  .foodozer-menu-desc {
+    font-size: 0.95rem;
+  }
+  .foodozer-menu-grid {
+    grid-template-columns: 1fr;
+    gap: 18px;
+  }
+  .foodozer-card {
+    max-width: 98vw;
+    min-width: unset;
+    border-radius: 12px;
+    padding: 0 0 10px 0;
+  }
+  .foodozer-card-img-wrap {
+    height: 110px;
+    border-radius: 12px 12px 0 0;
+  }
+  .foodozer-card-img {
+    border-radius: 12px 12px 0 0;
+  }
+  .foodozer-card-title {
+    font-size: 1rem;
+  }
+  .foodozer-card-price {
+    font-size: 0.95rem;
+  }
+  .foodozer-card-add {
+    width: 32px;
+    height: 32px;
+    font-size: 1.1rem;
+    top: 10px;
+    right: 10px;
+  }
+  .foodozer-cart-modal-content {
+    min-width: 90vw;
+    padding: 18px 6px 14px 6px;
+  }
+  .foodozer-cart-modal-title {
+    font-size: 1.1rem;
+  }
+  .foodozer-cart-modal-close {
+    font-size: 1.3rem;
+    top: 8px;
+    right: 10px;
+  }
+  .foodozer-cart-modal-list {
+    font-size: 0.98rem;
+  }
+  .foodozer-refresh-btn {
+    font-size: 0.95rem;
+    padding: 8px 12px;
+    border-radius: 18px;
+  }
+}
+@media (max-width: 480px) {
+  .foodozer-header {
+    flex-direction: column;
+    padding: 8px 0.5vw;
+    gap: 6px;
+  }
+  .foodozer-hero {
+    padding: 10px 0.5vw;
+    border-radius: 10px;
+    margin: 8px 0.5vw 0 0.5vw;
+  }
+  .foodozer-hero-title {
+    font-size: 1.05rem;
+  }
+  .foodozer-hero-desc {
+    font-size: 0.88rem;
+  }
+  .foodozer-cta {
+    font-size: 0.92rem;
+    padding: 7px 10px;
+    border-radius: 12px;
+  }
+  .foodozer-hero-image img {
+    border-radius: 8px;
+    max-width: 97vw;
+  }
+  .foodozer-menu-section {
+    padding: 8px 0.2vw 8px 0.2vw;
+  }
+  .foodozer-menu-title {
+    font-size: 1.05rem;
+  }
+  .foodozer-menu-desc {
+    font-size: 0.88rem;
+  }
+  .foodozer-menu-grid {
+    grid-template-columns: 1fr;
+    gap: 8px;
+  }
+  .foodozer-card {
+    max-width: 99vw;
+    border-radius: 8px;
+    padding: 0 0 6px 0;
+  }
+  .foodozer-card-img-wrap {
+    height: 70px;
+    border-radius: 8px 8px 0 0;
+  }
+  .foodozer-card-img {
+    border-radius: 8px 8px 0 0;
+  }
+  .foodozer-card-title {
+    font-size: 0.92rem;
+  }
+  .foodozer-card-price {
+    font-size: 0.82rem;
+  }
+  .foodozer-card-add {
+    width: 25px;
+    height: 25px;
+    font-size: 0.92rem;
+    top: 6px;
+    right: 6px;
+  }
+  .foodozer-cart-modal-content {
+    min-width: 97vw;
+    padding: 8px 2px 8px 2px;
+  }
+  .foodozer-cart-modal-title {
+    font-size: 0.92rem;
+  }
+  .foodozer-cart-modal-close {
+    font-size: 1.1rem;
+    top: 3px;
+    right: 6px;
+  }
+  .foodozer-cart-modal-list {
+    font-size: 0.88rem;
+  }
+  .foodozer-refresh-btn {
+    font-size: 0.82rem;
+    padding: 6px 7px;
+    border-radius: 12px;
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+.foodozer-menu-section {
+  padding: 70px 6vw 60px 6vw;
+  text-align: center;
+}
+.foodozer-menu-title {
+  font-size: 2.8rem;
+  color: var(--purple-main);
+  font-weight: 900;
+  margin-bottom: 10px;
+}
+.foodozer-menu-desc {
+  color: var(--purple-dark);
+  max-width: 700px;
+  margin: 0 auto 38px auto;
+  font-size: 1.08rem;
+  font-weight: 500;
+}
+
+.foodozer-menu-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 36px;
+  justify-items: center;
+  margin-top: 18px;
+}
+.foodozer-empty {
+  color: var(--purple-dark);
+  font-size: 1.2rem;
+  font-weight: 600;
+  opacity: 0.8;
+}
+
+/* -------- Cart Badge -------- */
+.foodozer-cart-badge {
+  display: inline-block;
+  background: linear-gradient(90deg, var(--purple-main), var(--purple-dark));
+  color: var(--white);
+  font-size: 0.92rem;
+  font-weight: 700;
+  border-radius: 50%;
+  padding: 3px 9px;
+  margin-left: 6px;
+  position: relative;
+  top: -2px;
+  box-shadow: 0 1px 6px rgba(162,89,255,0.12);
+}
+
+/* -------- Cart Modal -------- */
+.foodozer-cart-modal {
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(45, 17, 77, 0.18);
+  z-index: 2000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: fadeIn 0.2s;
+}
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+.foodozer-cart-modal-content {
+  background: var(--white);
+  border-radius: 20px;
+  box-shadow: var(--shadow);
+  padding: 38px 32px 28px 32px;
+  min-width: 330px;
+  max-width: 95vw;
+  position: relative;
+  text-align: left;
+}
+.foodozer-cart-modal-title {
+  color: var(--purple-main);
+  font-size: 2rem;
+  font-weight: 800;
+  margin-bottom: 18px;
+}
+.foodozer-cart-modal-close {
+  position: absolute;
+  top: 18px;
+  right: 22px;
+  background: none;
+  border: none;
+  font-size: 2rem;
+  color: var(--purple-dark);
+  cursor: pointer;
+  font-weight: bold;
+  transition: color 0.2s;
+}
+.foodozer-cart-modal-close:hover {
+  color: var(--purple-main);
+}
+.foodozer-cart-modal-list {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 16px 0;
+}
+.foodozer-cart-modal-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 0;
+  border-bottom: 1px solid #eee;
+}
+.foodozer-cart-modal-item-title {
+  flex: 2;
+  color: var(--purple-dark);
+  font-weight: 700;
+}
+.foodozer-cart-modal-item-price {
+  flex: 1;
+  color: var(--purple-main);
+  font-weight: 700;
+  text-align: right;
+}
+.foodozer-cart-modal-item-quantity {
+  flex: 1;
+  color: #555;
+  font-weight: 500;
+  text-align: center;
+}
+.foodozer-cart-modal-item-remove {
+  background: var(--purple-main);
+  color: var(--white);
+  border: none;
+  border-radius: 18px;
+  padding: 4px 14px;
+  margin-left: 12px;
+  font-size: 0.92rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.foodozer-cart-modal-item-remove:hover {
+  background: var(--purple-dark);
+}
+.foodozer-cart-modal-clear {
+  background: var(--purple-dark);
+  color: var(--white);
+  border: none;
+  border-radius: 24px;
+  padding: 10px 24px;
+  font-size: 1.02rem;
+  font-weight: 700;
+  margin-top: 12px;
+  cursor: pointer;
+  transition: background 0.2s;
+  display: block;
+  margin-left: auto;
+}
+.foodozer-cart-modal-clear:hover {
+  background: var(--purple-main);
+}
+
+/* -------- Foodozer Food Cards -------- */
+.foodozer-card {
+  background: var(--white);
+  border-radius: 22px;
+  box-shadow: var(--shadow);
+  padding: 0 0 18px 0;
+  text-align: center;
+  position: relative;
+  transition: transform 0.25s, box-shadow 0.25s;
+  width: 100%;
+  max-width: 270px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.foodozer-card:hover {
+  transform: translateY(-7px) scale(1.035);
+  box-shadow: 0 10px 32px rgba(162,89,255,0.16);
+}
+.foodozer-card-img-wrap {
+  width: 100%;
+  height: 170px;
+  overflow: hidden;
+  border-radius: 22px 22px 0 0;
+  background: var(--purple-light);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.foodozer-card-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 22px 22px 0 0;
+  transition: transform 0.3s;
+}
+.foodozer-card:hover .foodozer-card-img {
+  transform: scale(1.07);
+}
+.foodozer-card-content {
+  padding: 18px 12px 0 12px;
+  width: 100%;
+}
+.foodozer-card-title {
+  margin: 10px 0 6px 0;
+  font-size: 1.18rem;
+  font-weight: 800;
+  color: var(--purple-dark);
+}
+.foodozer-card-price {
+  color: var(--purple-main);
+  font-weight: bold;
+  margin-bottom: 12px;
+  font-size: 1.08rem;
+}
+.foodozer-card-add {
+  background: linear-gradient(90deg, var(--purple-main), var(--purple-dark));
+  color: var(--white);
+  border: none;
+  border-radius: 50%;
+  font-size: 1.25rem;
+  width: 38px;
+  height: 38px;
+  cursor: pointer;
+  box-shadow: 0 2px 10px rgba(162,89,255,0.13);
+  transition: background 0.2s, transform 0.2s;
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.foodozer-card-add:hover {
+  background: var(--purple-dark);
+  transform: scale(1.13);
+}
+
+
+/* -------- Menu Section -------- */
+.menu {
+  padding: 60px 100px;
+  text-align: center;
+}
+
+.menu h2 {
+  font-size: 2.5rem;
+  margin-bottom: 10px;
+}
+
+.menu-desc {
+  color: #666;
+  max-width: 700px;
+  margin: 0 auto 40px auto;
+  font-size: 1rem;
+}
+
+/* -------- Food Cards -------- */
+.menu-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+  gap: 30px;
+  justify-items: center;
+}
+
+.food-card {
+  background: #b7ffb7;
+  border-radius: 20px;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  text-align: center;
+  position: relative;
+  transition: all 0.3s ease-in-out;
+}
+
+.food-card:hover {
+  transform: translateY(-5px);
+}
+
+.food-card img {
+  width: 100%;
+  height: 160px;
+  object-fit: cover;
+  border-radius: 15px;
+}
+
+.food-card h3 {
+  margin: 15px 0 5px;
+  font-size: 1.2rem;
+}
+
+.food-card .price {
+  color: #2ecc40;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.add-btn {
+  position: absolute;
+  right: 15px;
+  top: 15px;
+  background-color: #eaffd0;
+  color: #2ecc40;
+  border: none;
+  border-radius: 50%;
+  font-size: 1.2rem;
+  width: 35px;
+  height: 35px;
+  cursor: pointer;
 }

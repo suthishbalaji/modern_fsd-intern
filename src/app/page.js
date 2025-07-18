@@ -9,7 +9,6 @@ export default function Home() {
   const [showCartModal, setShowCartModal] = useState(false);
   const router = useRouter();
 
-  // Load items and cart from localStorage
   const loadItems = () => {
     const stored = JSON.parse(localStorage.getItem('items') || '[]');
     setItems(stored);
@@ -22,15 +21,13 @@ export default function Home() {
     setCart(storedCart);
   }, []);
 
-  // Auto-refresh items every 10 seconds
   useEffect(() => {
     const interval = setInterval(() => {
       loadItems();
-    }, 10000); // 10 seconds
+    }, 10000); 
     return () => clearInterval(interval);
   }, []);
 
-  // Save cart to localStorage whenever it changes
   useEffect(() => {
     localStorage.setItem('cart', JSON.stringify(cart));
   }, [cart]);
@@ -41,7 +38,6 @@ export default function Home() {
     router.push('/login');
   };
 
-  // Add item to cart
   const handleAddToCart = (item) => {
     setCart((prevCart) => {
       const existing = prevCart.find((i) => i.title === item.title);
@@ -55,7 +51,6 @@ export default function Home() {
     });
   };
 
-  // Remove item from cart
   const handleRemoveFromCart = (item) => {
     setCart((prevCart) =>
       prevCart
@@ -68,13 +63,12 @@ export default function Home() {
     );
   };
 
-  // Clear cart
   const handleClearCart = () => {
     setCart([]);
   };
 
-  // Get cart count
   const cartCount = cart.reduce((sum, i) => sum + i.quantity, 0);
+  const totalPrice = cart.reduce((sum, i) => sum + i.price * i.quantity, 0);
 
   return (
     <div className="foodozer-home">
@@ -110,12 +104,8 @@ export default function Home() {
 
       {/* Menu Section */}
       <section id="menu" className="foodozer-menu-section">
-        <h2 className="foodozer-menu-title">Our Menu</h2>
-        <p className="foodozer-menu-desc">Handpicked dishes to delight your taste buds. Click + to add to your cart!</p>
-        <button className="foodozer-refresh-btn" onClick={loadItems}>
-  <span className="foodozer-refresh-icon" aria-hidden="true"></span>
-  <span style={{marginLeft: 8, fontWeight: 700}}>Refresh Menu</span>
-</button>
+        <h2 className="foodozer-menu-title" style={{ color: '#fff' }}>Our Menu</h2>
+        <p className="foodozer-menu-desc" style={{ color: '#fff' }}>Handpicked dishes to delight your taste buds. Click + to add to your cart!</p>
         <div className="foodozer-menu-grid">
           {items.length === 0 ? (
             <div className="foodozer-empty">No items found.</div>
@@ -148,10 +138,13 @@ export default function Home() {
                   <span className="foodozer-cart-modal-item-title">{item.title}</span>
                   <span className="foodozer-cart-modal-item-price">₹{item.price}</span>
                   <span className="foodozer-cart-modal-item-quantity">x{item.quantity}</span>
+                  <button className="foodozer-cart-modal-item-plus" style={{marginLeft: 8, marginRight: 4, background: '#e0e0e0', border: 'none', borderRadius: '50%', width: 24, height: 24, fontWeight: 700, cursor: 'pointer'}} onClick={() => handleAddToCart(item)}>+</button>
                   <button className="foodozer-cart-modal-item-remove" onClick={() => handleRemoveFromCart(item)}>Remove</button>
                 </li>
               ))}
             </ul>
+            <div className="foodozer-cart-modal-total" style={{margin: '16px 0', fontWeight: 700, fontSize: '1.1em'}}>Total: ₹{totalPrice}</div>
+            <button className="foodozer-cart-modal-checkout" style={{marginBottom: 12, background: '#4caf50', color: 'white', padding: '10px 20px', border: 'none', borderRadius: 4, fontWeight: 700, cursor: 'pointer'}} onClick={() => alert('Checkout functionality coming soon!')}>Checkout</button>
             <button className="foodozer-cart-modal-clear" onClick={handleClearCart}>Clear Cart</button>
           </div>
         </div>

@@ -14,14 +14,12 @@ export default function AdminDashboard() {
 
   const router = useRouter();
 
-  // Admin authentication check
   useEffect(() => {
     if (typeof window !== 'undefined') {
       const isAdmin = localStorage.getItem('admin_auth');
       if (!isAdmin) {
         router.push('/admin/login');
       }
-      // Seed default items if none exist
       let storedItems = localStorage.getItem('items');
       if (!storedItems || JSON.parse(storedItems).length === 0) {
         const defaultItems = [
@@ -84,7 +82,6 @@ export default function AdminDashboard() {
     }
   }, []);
 
-  // Add or update item
   const handleSubmit = () => {
     if (!title || !price || !imageUrl) {
       alert('Please fill in all fields.');
@@ -111,7 +108,6 @@ export default function AdminDashboard() {
     alert(editIndex !== null ? 'Item updated!' : 'Item added!');
   };
 
-  // Edit item
   const handleEdit = (index) => {
     const item = items[index];
     setTitle(item.title);
@@ -121,7 +117,6 @@ export default function AdminDashboard() {
     setEditIndex(index);
   };
 
-  // Delete item
   const handleDelete = (index) => {
     const confirmed = window.confirm("Are you sure you want to delete this item?");
     if (!confirmed) return;
@@ -131,11 +126,10 @@ export default function AdminDashboard() {
     localStorage.setItem('items', JSON.stringify(updatedItems));
   };
 
-  // Admin logout handler
   const handleAdminLogout = () => {
     localStorage.removeItem('admin_auth');
     localStorage.removeItem('admin_user');
-    router.push('/admin/login');
+    router.push('/login');
   };
 
   return (

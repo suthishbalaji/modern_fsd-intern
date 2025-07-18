@@ -1,55 +1,172 @@
+body, html {
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
+  background: linear-gradient(135deg, #f8f0ff 0%, #a259ff 100%);
+  font-family: 'Poppins', sans-serif;
+}
+
 .login-container {
   display: flex;
   justify-content: center;
   align-items: center;
   min-height: 100vh;
-  background: #fff0e6;
+  background: transparent;
   font-family: 'Poppins', sans-serif;
 }
 
 .login-box {
-  background: white;
+  background: rgba(255, 255, 255, 0.18);
+  backdrop-filter: blur(16px) saturate(180%);
+  -webkit-backdrop-filter: blur(16px) saturate(180%);
   padding: 50px 40px;
-  border-radius: 20px;
-  box-shadow: 0 10px 25px rgba(0,0,0,0.1);
-  width: 360px;
+  border-radius: 24px;
+  box-shadow: 0 12px 32px rgba(162, 89, 255, 0.25), 0 2px 8px rgba(0,0,0,0.08);
+  width: 380px;
   text-align: center;
+  border: 2.5px solid rgba(162, 89, 255, 0.25);
+  animation: pop-in 0.7s cubic-bezier(.68,-0.55,.27,1.55);
+}
+
+@keyframes pop-in {
+  0% { transform: scale(0.95) translateY(30px); opacity: 0; }
+  100% { transform: scale(1) translateY(0); opacity: 1; }
 }
 
 .login-box h2 {
   margin-bottom: 30px;
-  font-size: 2rem;
-  color: #2ecc40;
+  font-size: 2.2rem;
+  color: #a259ff;
+  font-weight: 800;
+  letter-spacing: 1px;
+}
+
+.role-selector {
+  display: flex;
+  justify-content: center;
+  gap: 32px;
+  margin-bottom: 24px;
+}
+
+.role-label {
+  font-size: 1.08rem;
+  font-weight: 600;
+  color: #2d2d2d;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  position: relative;
+  padding: 6px 18px 6px 34px;
+  border-radius: 20px;
+  transition: background 0.18s, color 0.18s;
+}
+
+.role-label input[type="radio"] {
+  position: absolute;
+  left: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  opacity: 0;
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+}
+
+.role-label::before {
+  content: '';
+  display: inline-block;
+  position: absolute;
+  left: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  border: 2px solid #a259ff;
+  background: #fff;
+  transition: border-color 0.18s, box-shadow 0.18s;
+}
+
+.role-label input[type="radio"]:checked + span,
+.role-label input[type="radio"]:checked ~ span {
+  color: #a259ff;
+}
+
+.role-label input[type="radio"]:checked ~ .custom-dot {
+  background: #a259ff;
+  border: 2px solid #fff;
+}
+
+.role-label input[type="radio"]:checked + span,
+.role-label input[type="radio"]:checked ~ span {
+  font-weight: 700;
+}
+
+.role-label input[type="radio"]:checked ~ .custom-dot {
+  box-shadow: 0 0 0 4px #a259ff33;
+}
+
+.role-label:hover {
+  background: #f6f0ff;
+}
+
+.role-label input[type="radio"]:focus ~ .custom-dot {
+  box-shadow: 0 0 0 3px #a259ff55;
+}
+
+/* Custom dot for checked state */
+.role-label .custom-dot {
+  position: absolute;
+  left: 15px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: transparent;
+  transition: background 0.18s, border-color 0.18s;
+  z-index: 2;
 }
 
 .login-box input {
   width: 100%;
-  padding: 12px 16px;
-  margin-bottom: 20px;
-  border: 1px solid #ddd;
-  border-radius: 12px;
-  font-size: 1rem;
+  padding: 14px 18px;
+  margin-bottom: 22px;
+  border: 1.5px solid #e0e0e0;
+  border-radius: 14px;
+  font-size: 1.08rem;
   transition: 0.2s ease;
+  background: #f9f9f9cc;
 }
 
 .login-box input:focus {
-  border-color: #2ecc40;
+  border-color: #a259ff;
   outline: none;
+  background: #fff;
 }
 
 .login-box button {
   width: 100%;
-  background-color: #2ecc40;
-  color: white;
-  padding: 12px;
+  background: linear-gradient(90deg, #a259ff 0%, #f8f0ff 100%);
+  color: #fff;
+  padding: 14px;
   border: none;
   border-radius: 30px;
-  font-size: 1rem;
+  font-size: 1.1rem;
   font-weight: bold;
   cursor: pointer;
-  transition: background-color 0.2s ease;
+  transition: background 0.2s, transform 0.15s;
+  box-shadow: 0 2px 8px rgba(162, 89, 255, 0.10);
+  margin-top: 8px;
+  letter-spacing: 0.5px;
 }
 
 .login-box button:hover {
-  background-color: #27ae60;
+  background: linear-gradient(90deg, #f8f0ff 0%, #a259ff 100%);
+  color: #a259ff;
+  transform: translateY(-2px) scale(1.03);
+}
+
+.user-bg-white {
+  background: #fff !important;
 }

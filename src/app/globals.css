@@ -1,4 +1,3 @@
-/* Global reset */
 body {
   margin: 0;
   padding: 0;
@@ -15,7 +14,6 @@ body {
   --shadow: 0 6px 24px rgba(162,89,255,0.11);
 }
 
-/* -------------- Foodozer Header ---------------- */
 .foodozer-header {
   display: flex;
   justify-content: space-between;
@@ -77,8 +75,6 @@ body {
   color: var(--white);
 }
 
-
-/* -------- Foodozer Hero Section -------- */
 .foodozer-hero {
   display: flex;
   flex-wrap: wrap;
@@ -151,8 +147,6 @@ body {
   object-fit: cover;
   box-shadow: var(--shadow);
 }
-
-/* -------- Foodozer Refresh Button -------- */
 .foodozer-refresh-btn {
   display: inline-flex;
   align-items: center;
@@ -189,10 +183,6 @@ body {
   0% { transform: rotate(0deg); }
   100% { transform: rotate(360deg); }
 }
-
-/* -------- Foodozer Menu Section -------- */
-
-/* Responsive Design */
 @media (max-width: 1200px) {
   .foodozer-hero {
     flex-direction: column;
@@ -549,7 +539,8 @@ body {
   background: var(--purple-main);
 }
 
-/* -------- Foodozer Food Cards -------- */
+
+
 .foodozer-card {
   background: var(--white);
   border-radius: 22px;

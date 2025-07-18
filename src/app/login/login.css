@@ -2,7 +2,7 @@ body, html {
   min-height: 100vh;
   margin: 0;
   padding: 0;
-  background: linear-gradient(135deg, #f8f0ff 0%, #a259ff 100%);
+  background: linear-gradient(135deg, #FFF8F0 0%, #FF474C 100%);
   font-family: 'Poppins', sans-serif;
 }
 
@@ -16,15 +16,15 @@ body, html {
 }
 
 .login-box {
-  background: rgba(255, 255, 255, 0.18);
+  background: rgba(255, 255, 255, 0.22);
   backdrop-filter: blur(16px) saturate(180%);
   -webkit-backdrop-filter: blur(16px) saturate(180%);
   padding: 50px 40px;
   border-radius: 24px;
-  box-shadow: 0 12px 32px rgba(162, 89, 255, 0.25), 0 2px 8px rgba(0,0,0,0.08);
+  box-shadow: 0 12px 32px rgba(255, 71, 76, 0.18), 0 2px 8px rgba(0,0,0,0.08);
   width: 380px;
   text-align: center;
-  border: 2.5px solid rgba(162, 89, 255, 0.25);
+  border: 2.5px solid rgba(255, 71, 76, 0.25);
   animation: pop-in 0.7s cubic-bezier(.68,-0.55,.27,1.55);
 }
 
@@ -36,7 +36,7 @@ body, html {
 .login-box h2 {
   margin-bottom: 30px;
   font-size: 2.2rem;
-  color: #a259ff;
+  color: #FF474C;
   font-weight: 800;
   letter-spacing: 1px;
 }
@@ -82,18 +82,18 @@ body, html {
   width: 20px;
   height: 20px;
   border-radius: 50%;
-  border: 2px solid #a259ff;
+  border: 2px solid #FF474C;
   background: #fff;
   transition: border-color 0.18s, box-shadow 0.18s;
 }
 
 .role-label input[type="radio"]:checked + span,
 .role-label input[type="radio"]:checked ~ span {
-  color: #a259ff;
+  color: #FF474C;
 }
 
 .role-label input[type="radio"]:checked ~ .custom-dot {
-  background: #a259ff;
+  background: #FF474C;
   border: 2px solid #fff;
 }
 
@@ -103,15 +103,15 @@ body, html {
 }
 
 .role-label input[type="radio"]:checked ~ .custom-dot {
-  box-shadow: 0 0 0 4px #a259ff33;
+  box-shadow: 0 0 0 4px #FF474C33;
 }
 
 .role-label:hover {
-  background: #f6f0ff;
+  background: #FFF8F0;
 }
 
 .role-label input[type="radio"]:focus ~ .custom-dot {
-  box-shadow: 0 0 0 3px #a259ff55;
+  box-shadow: 0 0 0 3px #FF474C55;
 }
 
 /* Custom dot for checked state */
@@ -140,14 +140,14 @@ body, html {
 }
 
 .login-box input:focus {
-  border-color: #a259ff;
+  border-color: #FF474C;
   outline: none;
   background: #fff;
 }
 
 .login-box button {
   width: 100%;
-  background: linear-gradient(90deg, #a259ff 0%, #f8f0ff 100%);
+  background: linear-gradient(90deg, #FF474C 0%, #FFF8F0 100%);
   color: #fff;
   padding: 14px;
   border: none;
@@ -162,11 +162,11 @@ body, html {
 }
 
 .login-box button:hover {
-  background: linear-gradient(90deg, #f8f0ff 0%, #a259ff 100%);
-  color: #a259ff;
+  background: linear-gradient(90deg, #FFF8F0 0%, #FF474C 100%);
+  color: #FF474C;
   transform: translateY(-2px) scale(1.03);
 }
 
 .user-bg-white {
-  background: #fff !important;
+  background: #FFF8F0 !important;
 }

@@ -4,14 +4,14 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background: #eaffd0;
+  background: #FFF8F0;
 }
 
 .loginForm {
-  background: #fff;
+  background: #fff8f0;
   padding: 32px 40px;
   border-radius: 16px;
-  box-shadow: 0 4px 18px rgba(46,204,64,0.10);
+  box-shadow: 0 4px 18px rgba(255,71,76,0.10);
   display: flex;
   flex-direction: column;
   gap: 20px;
@@ -21,7 +21,7 @@
 .loginInput {
   width: 100%;
   padding: 12px;
-  border: 1.5px solid #2ecc40;
+  border: 1.5px solid #FF474C;
   border-radius: 8px;
   font-size: 1rem;
   margin-bottom: 8px;
@@ -30,11 +30,11 @@
 
 .loginInput:focus {
   outline: none;
-  border-color: #27ae60;
+  border-color: #FF474C;
 }
 
 .loginButton {
-  background: #2ecc40;
+  background: #FF474C;
   color: #fff;
   border: none;
   border-radius: 8px;
@@ -46,11 +46,11 @@
 }
 
 .loginButton:hover {
-  background: #27ae60;
+  background: #d93a3e;
 }
 
 .adminTitle {
-  color: #2ecc40;
+  color: #FF474C;
   margin-bottom: 18px;
   font-size: 2rem;
   font-weight: 700;

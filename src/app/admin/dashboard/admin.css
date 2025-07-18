@@ -1,22 +1,22 @@
 :root {
-  --purple-main: #a259ff;
-  --purple-dark: #8e44ad;
-  --purple-light: #f3e8ff;
-  --white: #fff;
-  --shadow: 0 6px 24px rgba(162,89,255,0.11);
+  --main: #FF474C;
+  --main-dark: #d93a3e;
+  --main-light: #FFF8F0;
+  --white: #FFF8F0;
+  --shadow: 0 6px 24px rgba(255,71,76,0.11);
 }
 
 .admin-panel {
   display: flex;
   min-height: 100vh;
-  background: linear-gradient(135deg, #f8f6ff 0%, #f3e8ff 100%);
+  background: linear-gradient(135deg, var(--main-light) 0%, var(--main) 100%);
   font-family: 'Poppins', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 .sidebar {
   min-width: 240px;
   background: var(--white);
-  color: var(--purple-main);
+  color: var(--main);
   padding: 36px 24px 24px 24px;
   text-align: center;
   border-radius: 0 32px 32px 0;
@@ -29,7 +29,7 @@
 .logo {
   font-size: 2rem;
   font-weight: 800;
-  color: var(--purple-main);
+  color: var(--main);
   margin-bottom: 38px;
 }
 
@@ -37,23 +37,23 @@
   margin: 14px 0;
   padding: 14px 0;
   border-radius: 16px;
-  background: linear-gradient(90deg, var(--purple-light), var(--white));
-  color: var(--purple-dark);
+  background: linear-gradient(90deg, var(--main-light), var(--white));
+  color: var(--main-dark);
   font-size: 1.08rem;
   font-weight: 700;
   cursor: pointer;
   width: 100%;
   border: none;
   transition: background 0.2s, color 0.2s, transform 0.2s;
-  box-shadow: 0 2px 8px rgba(162,89,255,0.08);
+  box-shadow: 0 2px 8px rgba(255,71,76,0.08);
 }
 .sidebar-button:hover {
-  background: linear-gradient(90deg, var(--purple-main), var(--purple-dark));
+  background: linear-gradient(90deg, var(--main), var(--main-dark));
   color: var(--white);
   transform: scale(1.04);
 }
 .sidebar-button.active {
-  background: var(--purple-main);
+  background: var(--main);
   color: var(--white);
   font-weight: bold;
   transform: scale(1.07);
@@ -61,8 +61,8 @@
 
 .logout-btn {
   background: none;
-  border: 2px solid var(--purple-main);
-  color: var(--purple-main);
+  border: 2px solid var(--main);
+  color: var(--main);
   border-radius: 24px;
   padding: 8px 22px;
   font-size: 1rem;
@@ -72,7 +72,7 @@
   transition: all 0.2s;
 }
 .logout-btn:hover {
-  background: var(--purple-main);
+  background: var(--main);
   color: var(--white);
 }
 
@@ -91,7 +91,7 @@
   margin: 0 auto 32px auto;
 }
 .form-section h2 {
-  color: var(--purple-main);
+  color: var(--main);
   font-size: 2rem;
   font-weight: 800;
   margin-bottom: 18px;
@@ -103,12 +103,12 @@
   display: block;
   margin-bottom: 7px;
   font-weight: 700;
-  color: var(--purple-dark);
+  color: var(--main-dark);
 }
 .form-group input {
   width: 100%;
   padding: 12px;
-  border: 1.5px solid var(--purple-light);
+  border: 1.5px solid var(--main-light);
   border-radius: 8px;
   font-size: 1rem;
   margin-bottom: 2px;
@@ -116,11 +116,11 @@
 }
 .form-group input:focus {
   outline: none;
-  border-color: var(--purple-main);
+  border-color: var(--main);
 }
 .add-button {
   padding: 12px 28px;
-  background: linear-gradient(90deg, var(--purple-main), var(--purple-dark));
+  background: linear-gradient(90deg, var(--main), var(--main-dark));
   color: var(--white);
   border: none;
   border-radius: 14px;
@@ -131,7 +131,7 @@
   margin-top: 12px;
 }
 .add-button:hover {
-  background: var(--purple-dark);
+  background: var(--main-dark);
   transform: scale(1.05);
 }
 .preview {
@@ -166,11 +166,11 @@
   width: 100%;
   border-radius: 16px;
   margin-bottom: 14px;
-  box-shadow: 0 2px 8px rgba(162,89,255,0.08);
+  box-shadow: 0 2px 8px rgba(255,71,76,0.08);
 }
 .item-card:hover {
   transform: translateY(-7px) scale(1.03);
-  box-shadow: 0 12px 32px rgba(162,89,255,0.15);
+  box-shadow: 0 12px 32px rgba(255,71,76,0.15);
 }
 .fade-in {
   animation: fadeIn 0.5s ease-in-out;
@@ -191,20 +191,20 @@
   transition: background 0.2s, color 0.2s, transform 0.18s;
 }
 .edit-btn {
-  background: linear-gradient(90deg, var(--purple-light), var(--purple-main));
-  color: var(--purple-dark);
+  background: linear-gradient(90deg, var(--main-light), var(--main));
+  color: var(--main-dark);
 }
 .edit-btn:hover {
-  background: var(--purple-main);
+  background: var(--main);
   color: var(--white);
   transform: scale(1.07);
 }
 .delete-btn {
-  background: linear-gradient(90deg, #ffd6f8, var(--purple-main));
-  color: var(--purple-dark);
+  background: linear-gradient(90deg, #ffd6f8, var(--main));
+  color: var(--main-dark);
 }
 .delete-btn:hover {
-  background: var(--purple-dark);
+  background: var(--main-dark);
   color: var(--white);
   transform: scale(1.07);
 }
